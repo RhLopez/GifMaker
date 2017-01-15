@@ -10,6 +10,14 @@ import Foundation
 import UIKit
 import MobileCoreServices
 
-extension UIViewController {
+extension UIViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBAction func launchVideoCamera(sender: AnyObject) {
+        let recordVideoController = UIImagePickerController()
+        recordVideoController.sourceType = .camera
+        recordVideoController.mediaTypes = [kUTTypeMovie as String]
+        recordVideoController.delegate = self
+        
+        present(recordVideoController, animated: true, completion: nil)
+    }
 }
