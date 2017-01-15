@@ -1,5 +1,5 @@
 //
-//  WelcomeViewController.swift
+//  PreviewViewController.swift
 //  GifMaker_Swift_Template
 //
 //  Created by Ramiro H. Lopez on 1/14/17.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
+class PreviewViewController: UIViewController {
     
 }
