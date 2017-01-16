@@ -19,3 +19,14 @@ class GifEditorViewController: UIViewController {
         gifImageView.image = gif?.gifImage
     }
 }
+
+extension GifEditorViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.placeholder = nil
+    }
+}
