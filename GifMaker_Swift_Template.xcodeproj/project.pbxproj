@@ -73,6 +73,25 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
+		DD5BD5FF1E2D43DB0025DE84 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DD74A1641E2AE60300B6E0DA /* WelcomeViewController.swift */,
+				DDAC86DA1E2B544D0052AC19 /* GifEditorViewController.swift */,
+				DDAC86DC1E2B54B10052AC19 /* PreviewViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		DD5BD6001E2D43F00025DE84 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DDEDA6651E2C4110002477F7 /* UIViewController+Record.swift */,
+				DDEDA6671E2C4827002477F7 /* UIImage+Gif.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		EDFAA8E01CDA99A500D2CB08 = {
 			isa = PBXGroup;
 			children = (
@@ -93,11 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				EDFAA8EC1CDA99A500D2CB08 /* AppDelegate.swift */,
-				DD74A1641E2AE60300B6E0DA /* WelcomeViewController.swift */,
-				DDAC86DA1E2B544D0052AC19 /* GifEditorViewController.swift */,
-				DDAC86DC1E2B54B10052AC19 /* PreviewViewController.swift */,
-				DDEDA6651E2C4110002477F7 /* UIViewController+Record.swift */,
-				DDEDA6671E2C4827002477F7 /* UIImage+Gif.swift */,
+				DD5BD5FF1E2D43DB0025DE84 /* ViewController */,
+				DD5BD6001E2D43F00025DE84 /* Extensions */,
 				A94CC3D71D21C85A00DC758E /* Assets */,
 				A94CC3D61D21C84C00DC758E /* Supporting Files */,
 				EDFAA9221CDA9C4700D2CB08 /* Regift Files */,
