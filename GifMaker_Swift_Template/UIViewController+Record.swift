@@ -42,4 +42,9 @@ extension UIViewController: UIImagePickerControllerDelegate {
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
+    func convertVideoToGif(videoURL: NSURL) {
+        let regift = Regift(sourceFileURL: videoURL as URL, destinationFileURL: nil, frameCount: frameCount, delayTime: delayTime, loopCount: loopCount)
+        let gifURL = regift.createGif()
+    }
 }
