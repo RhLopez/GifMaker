@@ -20,6 +20,7 @@ extension UIViewController {
         let recordVideoController = UIImagePickerController()
         recordVideoController.sourceType = .camera
         recordVideoController.mediaTypes = [kUTTypeMovie as String]
+        recordVideoController.allowsEditing = false
         recordVideoController.delegate = self
         
         present(recordVideoController, animated: true, completion: nil)
@@ -33,9 +34,9 @@ extension UIViewController: UIImagePickerControllerDelegate {
         let mediaType = info[UIImagePickerControllerMediaType] as! String
         
         if mediaType == kUTTypeMovie as String {
-            let videoURL = info[UIImagePickerControllerMediaURL] as! NSURL
-            UISaveVideoAtPathToSavedPhotosAlbum(videoURL.path!, nil, nil, nil)
+            let videoURL = info[UIImagePickerControllerMediaURL] as! URL
             dismiss(animated: true, completion: nil)
+            convertVideoToGif(videoURL: videoURL)
         }
     }
     
