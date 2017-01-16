@@ -18,6 +18,11 @@ class GifEditorViewController: UIViewController {
         super.viewWillAppear(animated)
         gifImageView.image = gif?.gifImage
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        captionTextField.delegate = self
+    }
 }
 
 extension GifEditorViewController: UITextFieldDelegate {
@@ -27,6 +32,6 @@ extension GifEditorViewController: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.placeholder = nil
+        textField.placeholder = ""
     }
 }
