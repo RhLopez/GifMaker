@@ -53,7 +53,7 @@ extension GifEditorViewController {
     }
     
     func keyboardWillShow(notification: Notification) {
-        if (self.view.frame.origin.y >= 0) {
+        if view.frame.origin.y >= 0 {
             var rect: CGRect = self.view.frame
             rect.origin.y  -= getKeyboardHeight(notifcation: notification)
             self.view.frame = rect
@@ -61,7 +61,7 @@ extension GifEditorViewController {
     }
     
     func keyboardWillHide(notification: Notification) {
-        if (self.view.frame.origin.y < 0) {
+        if view.frame.origin.y < 0 {
             var rect: CGRect = self.view.frame
             rect.origin.y += getKeyboardHeight(notifcation: notification)
             self.view.frame = rect
@@ -69,8 +69,8 @@ extension GifEditorViewController {
     }
     
     func getKeyboardHeight(notifcation: Notification) -> CGFloat {
-        let userInfo: Dictionary = notifcation.userInfo!
-        let keyBoardSize = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
+        let userInfo = notifcation.userInfo
+        let keyBoardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         
         return keyBoardSize.cgRectValue.height
     }
