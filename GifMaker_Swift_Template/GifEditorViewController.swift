@@ -24,6 +24,10 @@ class GifEditorViewController: UIViewController {
         super.viewDidLoad()
         captionTextField.delegate = self
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        unsubscribeFromKeyboardNotification()
+    }
 }
 
 extension GifEditorViewController: UITextFieldDelegate {
