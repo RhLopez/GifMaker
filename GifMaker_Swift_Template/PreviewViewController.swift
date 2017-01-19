@@ -10,4 +10,7 @@ import UIKit
 
 class PreviewViewController: UIViewController {
     
+    @IBOutlet weak var gifImageView: UIImageView!
+    var gif: Gif?
+    
 }
