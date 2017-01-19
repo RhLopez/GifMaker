@@ -13,4 +13,8 @@ class PreviewViewController: UIViewController {
     @IBOutlet weak var gifImageView: UIImageView!
     var gif: Gif?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        gifImageView.image = gif?.gifImage
+    }
 }
