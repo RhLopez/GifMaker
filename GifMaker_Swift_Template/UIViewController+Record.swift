@@ -44,7 +44,7 @@ extension UIViewController {
         let recordVideoController = UIImagePickerController()
         recordVideoController.sourceType = .camera
         recordVideoController.mediaTypes = [kUTTypeMovie as String]
-        recordVideoController.allowsEditing = false
+        recordVideoController.allowsEditing = true
         recordVideoController.delegate = self
         
         present(recordVideoController, animated: true, completion: nil)
@@ -58,11 +58,16 @@ extension UIViewController: UIImagePickerControllerDelegate {
         let mediaType = info[UIImagePickerControllerMediaType] as! String
         
         if mediaType == kUTTypeMovie as String {
-            let start = info["_UIImagePickerControllerVideoEditingStart"] as! NSNumber
-            let end = info["_UIImagePickerControllerVideoEditingEnd"] as! NSNumber
-            let duration = NSNumber(value: end.floatValue - start.floatValue)
             let videoURL = info[UIImagePickerControllerMediaURL] as! URL
-            dismiss(animated: true, completion: nil)
+            let start: NSNumber? = info["_UIImagePickerControllerVideoEditingStart"] as? NSNumber
+            let end: NSNumber? = info["_UIImagePickerControllerVideoEditingEnd"] as? NSNumber
+            var duration: NSNumber?
+            if let start = start {
+                duration = NSNumber(value: (end!.floatValue) - (start.floatValue))
+            } else {
+                duration = nil
+            }
+            //dismiss(animated: true, completion: nil)
             convertVideoToGif(videoURL: videoURL, start: start, duration: duration)
         }
     }
