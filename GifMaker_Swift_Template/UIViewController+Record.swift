@@ -44,7 +44,7 @@ extension UIViewController {
         let recordVideoController = UIImagePickerController()
         recordVideoController.sourceType = .camera
         recordVideoController.mediaTypes = [kUTTypeMovie as String]
-        recordVideoController.allowsEditing = true
+        recordVideoController.allowsEditing = false
         recordVideoController.delegate = self
         
         present(recordVideoController, animated: true, completion: nil)
@@ -69,6 +69,16 @@ extension UIViewController: UIImagePickerControllerDelegate {
     
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePicker(source: UIImagePickerControllerSourceType) -> UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.sourceType = source
+        picker.mediaTypes = [kUTTypeMovie as String]
+        picker.allowsEditing = true
+        picker.delegate = self
+        
+        return picker
     }
     
     func convertVideoToGif(videoURL: URL, start: NSNumber?, duration: NSNumber?) {
