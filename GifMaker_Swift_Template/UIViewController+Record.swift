@@ -44,7 +44,7 @@ extension UIViewController {
         let recordVideoController = UIImagePickerController()
         recordVideoController.sourceType = .camera
         recordVideoController.mediaTypes = [kUTTypeMovie as String]
-        recordVideoController.allowsEditing = false
+        recordVideoController.allowsEditing = true
         recordVideoController.delegate = self
         
         present(recordVideoController, animated: true, completion: nil)
@@ -58,9 +58,12 @@ extension UIViewController: UIImagePickerControllerDelegate {
         let mediaType = info[UIImagePickerControllerMediaType] as! String
         
         if mediaType == kUTTypeMovie as String {
+            let start = info["_UIImagePickerControllerVideoEditingStart"] as! NSNumber
+            let end = info["_UIImagePickerControllerVideoEditingEnd"] as! NSNumber
+            let duration = NSNumber(value: end.floatValue - start.floatValue)
             let videoURL = info[UIImagePickerControllerMediaURL] as! URL
             dismiss(animated: true, completion: nil)
-            convertVideoToGif(videoURL: videoURL)
+            convertVideoToGif(videoURL: videoURL, start: start, duration: duration)
         }
     }
     
@@ -68,8 +71,15 @@ extension UIViewController: UIImagePickerControllerDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-    func convertVideoToGif(videoURL: URL) {
-        let regift = Regift(sourceFileURL: videoURL as URL, destinationFileURL: nil, frameCount: frameCount, delayTime: delayTime, loopCount: loopCount)
+    func convertVideoToGif(videoURL: URL, start: NSNumber?, duration: NSNumber?) {
+        var regift: Regift
+        if let startTime = start,
+            let durationTime = duration {
+            regift = Regift(sourceFileURL: videoURL as URL, destinationFileURL: nil, startTime: startTime.floatValue, duration: durationTime.floatValue, frameRate: frameCount, loopCount: loopCount)
+        } else {
+            regift = Regift(sourceFileURL: videoURL as URL, destinationFileURL: nil, frameCount: frameCount, delayTime: delayTime, loopCount: loopCount)
+        }
+        
         let gifURL = regift.createGif()
         let gif = Gif(url: gifURL!, videoURL: videoURL, caption: nil)
         displayGIF(gif)
