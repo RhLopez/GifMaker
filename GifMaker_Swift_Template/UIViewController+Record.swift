@@ -68,7 +68,7 @@ extension UIViewController: UIImagePickerControllerDelegate {
             } else {
                 duration = nil
             }
-            //dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
             cropVideoToSquare(rawVideoURL: videoURL, start: start, duration: duration)
         }
     }
@@ -146,15 +146,24 @@ extension UIViewController: UIImagePickerControllerDelegate {
     }
     
     func createPath() -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let documentsDirectory: NSString = paths.first! as NSString
+        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         let manager = FileManager()
-        var outputURL: NSString = documentsDirectory.appendingPathComponent("output") as NSString
-        try! manager.createDirectory(atPath: outputURL as String, withIntermediateDirectories: true, attributes: nil)
-        outputURL = outputURL.appendingPathComponent("output.mov") as NSString
+        var outputURL = URL(fileURLWithPath: documentsDirectory).appendingPathComponent("output").path
         
-        try! manager.removeItem(at: URL(string: outputURL as String)!)
+        do {
+            try manager.createDirectory(atPath: outputURL, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            print("Could not create path")
+        }
+
+        outputURL = URL(fileURLWithPath: outputURL).appendingPathComponent("output.mov").path
         
-        return outputURL as String
+        do {
+            try manager.removeItem(atPath: outputURL)
+        } catch {
+            print("Could not remove \"outputURL\"")
+        }
+
+        return outputURL
     }
 }
