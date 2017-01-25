@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MobileCoreServices
+import AVFoundation
 
 // Regift constans
 let frameCount = 16
@@ -105,5 +106,42 @@ extension UIViewController: UIImagePickerControllerDelegate {
         
         gifEditorVC.gif = gif
         navigationController?.pushViewController(gifEditorVC, animated: true)
+    }
+    
+    func cropVideoToSquare(rawVideoURL: URL, start: NSNumber, duration: NSNumber) {
+        // Create the AVAsset and AVAssetTrack
+        let videoAsset = AVAsset(url: rawVideoURL)
+        let videoTrack = videoAsset.tracks(withMediaType: AVMediaTypeVideo).first!
+        
+        // Crop to square
+        let videoComposition = AVMutableVideoComposition()
+        videoComposition.renderSize = CGSize(width: videoTrack.naturalSize.height, height: videoTrack.naturalSize.width)
+        videoComposition.frameDuration = CMTime(value: 1, timescale: 30)
+        
+        let instruction = AVMutableVideoCompositionInstruction()
+        instruction.timeRange = CMTimeRange(start: kCMTimeZero, duration: CMTimeMakeWithSeconds(60, 30))
+        
+        // Rotate to portrait
+        let transformer = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
+        let t1 = CGAffineTransform(translationX: videoTrack.naturalSize.height, y: -(videoTrack.naturalSize.width - videoTrack.naturalSize.height) / 2 )
+        let t2 = t1.rotated(by: CGFloat(M_PI_2))
+        
+        let finalTransform = t2
+        transformer.setTransform(finalTransform, at: kCMTimeZero)
+        instruction.layerInstructions = [transformer]
+        videoComposition.instructions = [instruction]
+        
+        // Export
+        let exporter = AVAssetExportSession(asset: videoAsset, presetName: AVAssetExportPresetHighestQuality)
+        exporter?.videoComposition = videoComposition
+        let path = createPath()
+        exporter?.outputURL = URL(fileURLWithPath: path)
+        exporter?.outputFileType = AVFileTypeQuickTimeMovie
+        
+        exporter?.exportAsynchronously {
+            let croppedURL = exporter?.outputURL
+            self.convertVideoToGif(videoURL: croppedURL!, start: start, duration: duration)
+        }
+        
     }
 }
