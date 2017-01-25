@@ -69,7 +69,7 @@ extension UIViewController: UIImagePickerControllerDelegate {
                 duration = nil
             }
             //dismiss(animated: true, completion: nil)
-            convertVideoToGif(videoURL: videoURL, start: start, duration: duration)
+            cropVideoToSquare(rawVideoURL: videoURL, start: start, duration: duration)
         }
     }
     
@@ -108,7 +108,7 @@ extension UIViewController: UIImagePickerControllerDelegate {
         navigationController?.pushViewController(gifEditorVC, animated: true)
     }
     
-    func cropVideoToSquare(rawVideoURL: URL, start: NSNumber, duration: NSNumber) {
+    func cropVideoToSquare(rawVideoURL: URL, start: NSNumber?, duration: NSNumber?) {
         // Create the AVAsset and AVAssetTrack
         let videoAsset = AVAsset(url: rawVideoURL)
         let videoTrack = videoAsset.tracks(withMediaType: AVMediaTypeVideo).first!
@@ -143,5 +143,18 @@ extension UIViewController: UIImagePickerControllerDelegate {
             self.convertVideoToGif(videoURL: croppedURL!, start: start, duration: duration)
         }
         
+    }
+    
+    func createPath() -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory: NSString = paths.first! as NSString
+        let manager = FileManager()
+        var outputURL: NSString = documentsDirectory.appendingPathComponent("output") as NSString
+        try! manager.createDirectory(atPath: outputURL as String, withIntermediateDirectories: true, attributes: nil)
+        outputURL = outputURL.appendingPathComponent("output.mov") as NSString
+        
+        try! manager.removeItem(at: URL(string: outputURL as String)!)
+        
+        return outputURL as String
     }
 }
