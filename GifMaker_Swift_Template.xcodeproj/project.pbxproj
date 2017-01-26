@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A93B3B081D2D3F7900BE1662 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93B3B041D2D3F7900BE1662 /* LaunchScreen.xib */; };
 		A93B3B091D2D3F7900BE1662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93B3B061D2D3F7900BE1662 /* Main.storyboard */; };
+		DD50375C1E39D7F1007A91C8 /* GifCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD50375B1E39D7F1007A91C8 /* GifCell.swift */; };
 		DD5BD6021E2D47F30025DE84 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BD6011E2D47F30025DE84 /* Gif.swift */; };
 		DD74A1651E2AE60300B6E0DA /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74A1641E2AE60300B6E0DA /* WelcomeViewController.swift */; };
 		DDAC86DB1E2B544D0052AC19 /* GifEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC86DA1E2B544D0052AC19 /* GifEditorViewController.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		A93B3B051D2D3F7900BE1662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A93B3B071D2D3F7900BE1662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD50375B1E39D7F1007A91C8 /* GifCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifCell.swift; sourceTree = "<group>"; };
 		DD5BD6011E2D47F30025DE84 /* Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		DD74A1641E2AE60300B6E0DA /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		DDAC86DA1E2B544D0052AC19 /* GifEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifEditorViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				DDAC86DA1E2B544D0052AC19 /* GifEditorViewController.swift */,
 				DDAC86DC1E2B54B10052AC19 /* PreviewViewController.swift */,
 				DDBBC79B1E39CE0F0023100B /* SavedGifsViewController.swift */,
+				DD50375B1E39D7F1007A91C8 /* GifCell.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			files = (
 				EDFAA9201CDA9C3100D2CB08 /* Regift.swift in Sources */,
 				DDBBC79C1E39CE0F0023100B /* SavedGifsViewController.swift in Sources */,
+				DD50375C1E39D7F1007A91C8 /* GifCell.swift in Sources */,
 				DD74A1651E2AE60300B6E0DA /* WelcomeViewController.swift in Sources */,
 				DDAC86DD1E2B54B10052AC19 /* PreviewViewController.swift in Sources */,
 				DDEDA6681E2C4827002477F7 /* UIImage+Gif.swift in Sources */,
