@@ -13,6 +13,7 @@
 		DD74A1651E2AE60300B6E0DA /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74A1641E2AE60300B6E0DA /* WelcomeViewController.swift */; };
 		DDAC86DB1E2B544D0052AC19 /* GifEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC86DA1E2B544D0052AC19 /* GifEditorViewController.swift */; };
 		DDAC86DD1E2B54B10052AC19 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC86DC1E2B54B10052AC19 /* PreviewViewController.swift */; };
+		DDBBC79C1E39CE0F0023100B /* SavedGifsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBBC79B1E39CE0F0023100B /* SavedGifsViewController.swift */; };
 		DDEDA6661E2C4110002477F7 /* UIViewController+Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEDA6651E2C4110002477F7 /* UIViewController+Record.swift */; };
 		DDEDA6681E2C4827002477F7 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEDA6671E2C4827002477F7 /* UIImage+Gif.swift */; };
 		EDDFC4DC1CE261A600A586CA /* tinaFeyHiFive.gif in Resources */ = {isa = PBXBuildFile; fileRef = EDDFC4DB1CE261A600A586CA /* tinaFeyHiFive.gif */; };
@@ -31,6 +32,7 @@
 		DD74A1641E2AE60300B6E0DA /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		DDAC86DA1E2B544D0052AC19 /* GifEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifEditorViewController.swift; sourceTree = "<group>"; };
 		DDAC86DC1E2B54B10052AC19 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		DDBBC79B1E39CE0F0023100B /* SavedGifsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedGifsViewController.swift; sourceTree = "<group>"; };
 		DDEDA6651E2C4110002477F7 /* UIViewController+Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Record.swift"; sourceTree = "<group>"; };
 		DDEDA6671E2C4827002477F7 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		EDDFC4DB1CE261A600A586CA /* tinaFeyHiFive.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tinaFeyHiFive.gif; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				DD74A1641E2AE60300B6E0DA /* WelcomeViewController.swift */,
 				DDAC86DA1E2B544D0052AC19 /* GifEditorViewController.swift */,
 				DDAC86DC1E2B54B10052AC19 /* PreviewViewController.swift */,
+				DDBBC79B1E39CE0F0023100B /* SavedGifsViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDFAA9201CDA9C3100D2CB08 /* Regift.swift in Sources */,
+				DDBBC79C1E39CE0F0023100B /* SavedGifsViewController.swift in Sources */,
 				DD74A1651E2AE60300B6E0DA /* WelcomeViewController.swift in Sources */,
 				DDAC86DD1E2B54B10052AC19 /* PreviewViewController.swift in Sources */,
 				DDEDA6681E2C4827002477F7 /* UIImage+Gif.swift in Sources */,
