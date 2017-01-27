@@ -31,4 +31,8 @@ class PreviewViewController: UIViewController {
         
         present(shareController, animated: true, completion: nil)
     }
+    
+    @IBAction func createAndSave() {
+        _ = navigationController?.popToRootViewController(animated: true)
+    }
 }
