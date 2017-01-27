@@ -13,6 +13,14 @@ class SavedGifsViewController: UIViewController, UICollectionViewDataSource, UIC
     let cellMargin: CGFloat = 12.0
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var emptyView: UIStackView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        emptyView.isHidden = (savedGifs.count != 0)
+        collectionView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
